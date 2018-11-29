@@ -3,13 +3,18 @@
  <meta charset="utf-8">
  <title>MADMIN - show unknown Gym</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href=" https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.bootstrap.min.css">
   <link rel="stylesheet" href=" https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
   <link rel="shortcut icon" href={{ url_for('static', filename='favicon.ico') }} type="image/x-icon">
   <link rel="icon" href={{ url_for('static', filename='favicon.ico') }} type="image/x-icon">
+  <style>
+    .dataTables_paginate input {
+      width: 6ch;
+    }
+  </style>
  </head>
 <body>
 <center><h1>Check unknown Gyms</h1>
@@ -21,6 +26,7 @@
 <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.10.12/pagination/input.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
 
 <script>
@@ -60,6 +66,7 @@
                    drawCallback: function(){
                       $("img.lazy").lazyload();
                    },
+                   "pagingType": "input",
 		           "order": [[ 4, "desc" ]],
 			       responsive: {{ responsive }},
 			       columnDefs: [{ targets: [4], type: 'date'}]
